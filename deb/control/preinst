@@ -1,0 +1,6 @@
+#!/bin/bash
+
+addgroup --system s3-ninja --quiet
+adduser --system --home /var/spool/s3-ninja --no-create-home --ingroup s3-ninja --disabled-password --shell /bin/false s3-ninja
+
+mkdir -p /opt/s3-ninja

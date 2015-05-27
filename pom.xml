@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <prerequisites>
+    <maven>3.0.0</maven>
+  </prerequisites>
+
+  <groupId>no.catenda.s3-ninja</groupId>
+  <artifactId>s3-ninja-debian</artifactId>
+  <name>s3-ninja-debian</name>
+  <version>1436</version>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <artifactId>jdeb</artifactId>
+        <groupId>org.vafer</groupId>
+        <version>1.3</version>
+        <executions>
+          <execution>
+            <id>jdeb-s3-ninja</id>
+            <phase>package</phase>
+            <goals>
+              <goal>jdeb</goal>
+            </goals>
+            <configuration>
+              <verbose>true</verbose>
+              <controlDir>deb/control</controlDir>
+              <deb>target/s3-ninja-${version}.deb</deb>
+              <dataSet>
+                <data>
+                  <src>deb/opt/s3-ninja-${version}.zip</src>
+                  <type>file</type>
+                  <mapper>
+                    <type>perm</type>
+                    <prefix>/opt</prefix>
+                  </mapper>
+                </data>
+                <data>
+                  <src>deb/etc/init/s3-ninja.conf</src>
+                  <type>file</type>
+                  <mapper>
+                    <type>perm</type>
+                    <prefix>/etc/init</prefix>
+                    <user>s3-ninja</user>
+                  </mapper>
+                </data>
+              </dataSet>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

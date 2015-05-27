@@ -1,0 +1,10 @@
+Source: bimsync-s3-ninja
+Section: contrib/java
+Priority: extra
+Maintainer: Catenda <ops@catenda.no>
+Package: bimsync-s3-ninja
+Architecture: all
+Depends: unzip
+Version: 1436
+Description: S3-ninja for bimsync
+  S3-ninja for bimsync

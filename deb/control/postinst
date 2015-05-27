@@ -1,0 +1,8 @@
+#!/bin/bash
+version=1436
+
+export DEBIAN_FRONTEND=noninteractive
+
+unzip -o /opt/s3-ninja-${version}.zip -d /opt/s3-ninja
+chown -R s3-ninja:s3-ninja /opt/s3-ninja
+chmod 755 /opt/s3-ninja/sirius.sh
